@@ -25,7 +25,35 @@ public class CountAndSay {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-        
+        countAndSay(5);
 	}
+	
+    public static String countAndSay(int n) {
+        
+    	if (n == 1)
+    	   return "1";
+    	//得到上一个序号对应的字符串
+    	String s = countAndSay(n - 1);
+    	int count = 1;
+    	StringBuilder sb = new StringBuilder();
+    	for (int i = 0; i < s.length(); ) {
+    		int j = i + 1;
+    		for (; j < s.length(); j++ ) {
+    			if (s.charAt(i) == s.charAt(j)) {
+        			count += 1;
+        		} else {
+        			
+        			break;
+        		}
+        			
+    		}
+    		sb.append(String.valueOf(count)).append(s.charAt(i));
+    		i += count;
+			count = 1;
+			
+    	}
+    	System.out.println(sb.toString());
+    	return sb.toString();
+    }
 
 }
