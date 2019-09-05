@@ -40,15 +40,20 @@ public class SearchAndInsert {
 	 */
 	public int searchAndInsert2(int[] nums, int target) {
 
-		if ((nums.length == 1 && target <= nums[0]) || nums.length == 0)
-			return 0;
-
-		for (int i = 0; i < nums.length - 1; i++) {
-			if (nums[i] >= target)
-				return i;
-			else if (nums[i] < target && nums[i + 1] >= target)
-				return i + 1;
-		}
-		return nums.length;
+		
+        int left = 0, right = nums.length, mid = (left + right) / 2; 
+		
+        while (left < right) {
+        	if (nums[mid] == target) {
+        		return mid;
+        	} else if (nums[mid] < target) {
+        		left = mid + 1;
+        		mid = (left + right) / 2;
+        	} else {
+        		right = mid;
+        		mid = (left + right) / 2;
+        	}
+        }
+		return left;
 	}
 }
