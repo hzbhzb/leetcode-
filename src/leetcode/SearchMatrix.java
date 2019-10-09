@@ -10,6 +10,7 @@ package leetcode;
  */
 public class SearchMatrix {
 
+	
 	public boolean searchMatrix(int[][] matrix, int target) {
 
 		if (matrix.length == 0 || matrix[0].length == 0)
